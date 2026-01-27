@@ -1,0 +1,296 @@
+presolving:
+(round 1, fast)       45 del vars, 4 del conss, 2 add conss, 47 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 15 clqs
+(round 2, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 2 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 3, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 4, fast)       47 del vars, 6 del conss, 3 add conss, 51 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 5, fast)       49 del vars, 8 del conss, 3 add conss, 51 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 6, exhaustive) 49 del vars, 11 del conss, 3 add conss, 51 chg bounds, 15 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 7, exhaustive) 49 del vars, 11 del conss, 3 add conss, 51 chg bounds, 15 chg sides, 10 chg coeffs, 2 upgd conss, 1 impls, 19 clqs
+(round 8, medium)     51 del vars, 11 del conss, 3 add conss, 51 chg bounds, 17 chg sides, 12 chg coeffs, 2 upgd conss, 1 impls, 19 clqs
+(round 9, exhaustive) 52 del vars, 11 del conss, 3 add conss, 51 chg bounds, 17 chg sides, 12 chg coeffs, 2 upgd conss, 1 impls, 18 clqs
+   (0.0s) probing cycle finished: starting next cycle
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (10 rounds: 10 fast, 5 medium, 4 exhaustive):
+ 52 deleted vars, 11 deleted constraints, 3 added constraints, 51 tightened bounds, 0 added holes, 17 changed sides, 12 changed coefficients
+ 120 implications, 142 cliques
+presolved problem has 44 variables (42 bin, 0 int, 2 impl, 0 cont) and 5 constraints
+      2 constraints of type <setppc>
+      3 constraints of type <linear>
+Presolving Time: 0.00
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+t 0.0s|     1 |     0 |     0 |     - | trivial|   0 |  44 |   5 |   0 |   0 |  0 |   0 |   0 |-2.874357e+09 | 3.981567e+08 |    Inf | unknown
+p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  44 |   5 |   5 |   0 |  0 |   0 |   0 |-2.874357e+09 | 2.063136e+08 |    Inf | unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 |-2.874357e+09 | 2.002514e+08 |    Inf | unknown
+  0.0s|     1 |     0 |    13 |     - |  1416k |   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 | 1.995819e+08 | 2.002514e+08 |   0.34%| unknown
+r 0.0s|     1 |     0 |    13 |     - |simplero|   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 | 1.995819e+08 | 1.996438e+08 |   0.03%| unknown
+  0.0s|     1 |     0 |    13 |     - |  1416k |   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 | 1.995819e+08 | 1.996438e+08 |   0.03%| unknown
+  0.0s|     1 |     0 |    13 |     - |  1416k |   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 | 1.995819e+08 | 1.996438e+08 |   0.03%| unknown
+  0.0s|     1 |     0 |    13 |     - |  1416k |   0 |  44 |   6 |   5 |   0 |  0 |   1 |   0 | 1.995819e+08 | 1.996438e+08 |   0.03%| unknown
+  0.0s|     1 |     0 |    14 |     - |  1425k |   0 |  44 |   6 |   6 |   1 |  1 |   1 |   0 | 1.995967e+08 | 1.996438e+08 |   0.02%| unknown
+d 0.0s|     1 |     0 |    14 |     - |farkasdi|   0 |  44 |   6 |   6 |   0 |  2 |   1 |   0 | 1.995967e+08 | 1.995967e+08 |   0.00%| unknown
+  0.0s|     1 |     0 |    14 |     - |  1425k |   0 |  44 |   6 |   6 |   1 |  2 |   1 |   0 | 1.995967e+08 | 1.995967e+08 |   0.00%| unknown
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.00
+Solving Nodes      : 1
+Primal Bound       : +1.99596673930198e+08 (6 solutions)
+Dual Bound         : +1.99596673930198e+08
+Gap                : 0.00 %
+presolving:
+(round 1, fast)       45 del vars, 4 del conss, 2 add conss, 47 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 15 clqs
+(round 2, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 2 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 3, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 4, fast)       47 del vars, 6 del conss, 3 add conss, 49 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 5, exhaustive) 47 del vars, 9 del conss, 3 add conss, 49 chg bounds, 15 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 6, exhaustive) 47 del vars, 9 del conss, 3 add conss, 49 chg bounds, 15 chg sides, 10 chg coeffs, 4 upgd conss, 1 impls, 19 clqs
+(round 7, medium)     49 del vars, 9 del conss, 3 add conss, 49 chg bounds, 17 chg sides, 12 chg coeffs, 4 upgd conss, 1 impls, 19 clqs
+(round 8, exhaustive) 50 del vars, 9 del conss, 3 add conss, 49 chg bounds, 17 chg sides, 12 chg coeffs, 4 upgd conss, 1 impls, 18 clqs
+   (0.0s) probing cycle finished: starting next cycle
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (9 rounds: 9 fast, 5 medium, 4 exhaustive):
+ 50 deleted vars, 9 deleted constraints, 3 added constraints, 49 tightened bounds, 0 added holes, 17 changed sides, 12 changed coefficients
+ 120 implications, 142 cliques
+presolved problem has 46 variables (42 bin, 0 int, 4 impl, 0 cont) and 7 constraints
+      2 constraints of type <varbound>
+      2 constraints of type <setppc>
+      3 constraints of type <linear>
+Presolving Time: 0.00
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  46 |   7 |   7 |   0 |  0 |   0 |   0 |-2.873357e+09 | 2.083136e+08 |    Inf | unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 |-2.873357e+09 | 2.022514e+08 |    Inf | unknown
+  0.0s|     1 |     0 |    13 |     - |  1421k |   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 2.014650e+08 | 2.022514e+08 |   0.39%| unknown
+r 0.0s|     1 |     0 |    13 |     - |simplero|   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 2.014650e+08 | 2.017759e+08 |   0.15%| unknown
+  0.0s|     1 |     0 |    13 |     - |  1421k |   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 2.014650e+08 | 2.017759e+08 |   0.15%| unknown
+  0.0s|     1 |     0 |    13 |     - |  1421k |   0 |  46 |   8 |   5 |   0 |  0 |   1 |   0 | 2.014650e+08 | 2.017759e+08 |   0.15%| unknown
+  0.0s|     1 |     0 |    14 |     - |  1432k |   0 |  46 |   8 |   6 |   1 |  1 |   1 |   0 | 2.014737e+08 | 2.017759e+08 |   0.15%| unknown
+  0.0s|     1 |     0 |    16 |     - |  1439k |   0 |  46 |   8 |   8 |   3 |  2 |   1 |   0 | 2.015967e+08 | 2.017759e+08 |   0.09%| unknown
+  0.0s|     1 |     0 |    16 |     - |  1439k |   0 |  46 |   8 |   8 |   3 |  2 |   1 |   0 | 2.015967e+08 | 2.017759e+08 |   0.09%| unknown
+  0.0s|     1 |     0 |    16 |     - |  1439k |   0 |  46 |   8 |  10 |   3 |  3 |   1 |   0 | 2.015967e+08 | 2.017759e+08 |   0.09%| unknown
+d 0.0s|     1 |     0 |    16 |     - |farkasdi|   0 |  46 |   8 |  10 |   0 |  4 |   1 |   0 | 2.015967e+08 | 2.015967e+08 |   0.00%| unknown
+  0.0s|     1 |     0 |    16 |     - |  1439k |   0 |  46 |   8 |  10 |   3 |  4 |   1 |   0 | 2.015967e+08 | 2.015967e+08 |   0.00%| unknown
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.00
+Solving Nodes      : 1
+Primal Bound       : +2.01596673930198e+08 (6 solutions)
+Dual Bound         : +2.01596673930198e+08
+Gap                : 0.00 %
+presolving:
+(round 1, fast)       45 del vars, 4 del conss, 2 add conss, 47 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 15 clqs
+(round 2, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 2 chg sides, 0 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 3, fast)       47 del vars, 6 del conss, 3 add conss, 47 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 4, fast)       47 del vars, 6 del conss, 3 add conss, 49 chg bounds, 12 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 5, exhaustive) 47 del vars, 9 del conss, 3 add conss, 49 chg bounds, 15 chg sides, 10 chg coeffs, 0 upgd conss, 1 impls, 19 clqs
+(round 6, exhaustive) 47 del vars, 9 del conss, 3 add conss, 49 chg bounds, 15 chg sides, 10 chg coeffs, 4 upgd conss, 1 impls, 19 clqs
+(round 7, medium)     49 del vars, 9 del conss, 3 add conss, 49 chg bounds, 17 chg sides, 12 chg coeffs, 4 upgd conss, 1 impls, 19 clqs
+(round 8, exhaustive) 50 del vars, 9 del conss, 3 add conss, 49 chg bounds, 17 chg sides, 12 chg coeffs, 4 upgd conss, 1 impls, 18 clqs
+   (0.0s) probing cycle finished: starting next cycle
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (9 rounds: 9 fast, 5 medium, 4 exhaustive):
+ 50 deleted vars, 9 deleted constraints, 3 added constraints, 49 tightened bounds, 0 added holes, 17 changed sides, 12 changed coefficients
+ 120 implications, 142 cliques
+presolved problem has 46 variables (42 bin, 0 int, 4 impl, 0 cont) and 7 constraints
+      2 constraints of type <varbound>
+      2 constraints of type <setppc>
+      3 constraints of type <linear>
+Presolving Time: 0.00
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+p 0.0s|     1 |     0 |     0 |     - |  clique|   0 |  46 |   7 |   7 |   0 |  0 |   0 |   0 |-2.774357e+09 | 4.063136e+08 |    Inf | unknown
+p 0.0s|     1 |     0 |     0 |     - | vbounds|   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 |-2.774357e+09 | 4.002514e+08 |    Inf | unknown
+  0.0s|     1 |     0 |    11 |     - |  1421k |   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 3.435353e+08 | 4.002514e+08 |  16.51%| unknown
+r 0.0s|     1 |     0 |    11 |     - |shifting|   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 3.435353e+08 | 4.000515e+08 |  16.45%| unknown
+  0.0s|     1 |     0 |    11 |     - |  1421k |   0 |  46 |   8 |   7 |   0 |  0 |   1 |   0 | 3.435353e+08 | 4.000515e+08 |  16.45%| unknown
+  0.0s|     1 |     0 |    12 |     - |  1434k |   0 |  46 |   8 |   8 |   1 |  1 |   1 |   0 | 3.439688e+08 | 4.000515e+08 |  16.30%| unknown
+  0.0s|     1 |     0 |    19 |     - |  1478k |   0 |  46 |   8 |  10 |   3 |  2 |   1 |   0 | 3.483657e+08 | 4.000515e+08 |  14.84%| unknown
+  0.0s|     1 |     0 |    26 |     - |  1491k |   0 |  46 |   8 |  12 |   5 |  3 |   1 |   0 | 3.585315e+08 | 4.000515e+08 |  11.58%| unknown
+r 0.0s|     1 |     0 |    26 |     - |shifting|   0 |  46 |   8 |  12 |   5 |  3 |   1 |   0 | 3.585315e+08 | 4.000497e+08 |  11.58%| unknown
+  0.0s|     1 |     0 |    27 |     - |  1500k |   0 |  46 |   8 |  13 |   6 |  4 |   1 |   0 | 3.600333e+08 | 4.000497e+08 |  11.11%| unknown
+  0.0s|     1 |     0 |    28 |     - |  1578k |   0 |  46 |   8 |  15 |   8 |  5 |   1 |   0 | 3.602026e+08 | 4.000497e+08 |  11.06%| unknown
+  0.0s|     1 |     0 |    28 |     - |  1578k |   0 |  46 |   8 |  17 |   8 |  6 |   1 |   0 | 3.602026e+08 | 4.000497e+08 |  11.06%| unknown
+d 0.0s|     1 |     0 |    28 |     - |farkasdi|   0 |  46 |   8 |  17 |   0 |  7 |   1 |   0 | 3.602026e+08 | 3.602026e+08 |   0.00%| unknown
+  0.0s|     1 |     0 |    28 |     - |  1578k |   0 |  46 |   8 |  17 |   8 |  7 |   1 |   0 | 3.602026e+08 | 3.602026e+08 |   0.00%| unknown
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.00
+Solving Nodes      : 1
+Primal Bound       : +3.60202586478067e+08 (9 solutions)
+Dual Bound         : +3.60202586478067e+08
+Gap                : 0.00 %
+Loading data from ./data/limit_example.csv
+
+=== System approach Availability Optimization ===
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 1347589.3998170854}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 3368973.499542737}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 5614955.832571214}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 7018694.790714043}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 7018694.790714016}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 5848912.325595031}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 4177794.5182821555}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 2611121.573926361}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 1450623.0966257402}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 725311.5483128793}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 673794.6999085427, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 1684486.7497713685, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 2807477.916285607, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 3509347.3953570216, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 3509347.395357008, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 2924456.1627975153, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 2088897.2591410778, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 1305560.7869631804, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 725311.5483128701, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 362655.77415643964, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 164843.5337074705, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 164843.5337074705, 'P004': 137369.61142289505}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 68684.80571144752, 'P004': 137369.61142289505}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 68684.80571144752, 'P004': 52834.465931881336}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 26417.232965940668, 'P004': 52834.465931881336}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 26417.232965940668, 'P004': 18869.4521185262}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 24787.52176666359, 'P003': 9434.7260592631, 'P004': 18869.4521185262}
+
+--- Greedy Optimization Allocation ---
+Part P001; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P002; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P003; Stock Level = 13; Total Cost = €65.00, Availability = 697.9900e-6
+Part P004; Stock Level = 13; Total Cost = €32.50, Availability = 697.9900e-6
+
+Total Availability (Greedy): 1.9964384756049471
+
+--- Greedy Optimization Allocation --- Fixed Target ---
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 1347589.3998170854}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 3368973.499542737}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 5614955.832571214}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 7018694.790714043}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 7018694.790714016}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 5848912.325595031}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 4177794.5182821555}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 2611121.573926361}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 1450623.0966257402}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 725311.5483128793}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 1684486.7497713685, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 2807477.916285607, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 3509347.3953570216, 'P004': 329687.067414941}
+Part P001; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P002; Stock Level = 1; Total Cost = €60.00, Availability = 982648.7348e-6
+Part P003; Stock Level = 3; Total Cost = €15.00, Availability = 734974.0847e-6
+Part P004; Stock Level = 10; Total Cost = €25.00, Availability = 13695.2686e-6
+
+Total Availability (Greedy Fixed): 2.7288393358876903
+
+--- Greedy Optimization --- Improved Target ---
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 1347589.3998170854}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 3368973.499542737}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 5614955.832571214}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 7018694.790714043}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 7018694.790714016}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 5848912.325595031}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 4177794.5182821555}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 2611121.573926361}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 1450623.0966257402}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 725311.5483128793}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 673794.6999085427, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 1684486.7497713685, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 2807477.916285607, 'P004': 329687.067414941}
+
+ Improvement dict: {'P001': 24787.52176666359, 'P002': 74362.56529999078, 'P003': 3509347.3953570216, 'P004': 329687.067414941}
+Part P001; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P002; Stock Level = 1; Total Cost = €60.00, Availability = 982648.7348e-6
+Part P003; Stock Level = 3; Total Cost = €15.00, Availability = 734974.0847e-6
+Part P004; Stock Level = 10; Total Cost = €25.00, Availability = 13695.2686e-6
+
+Total Availability (Greedy Cost Effective): 2.7288393358876903
+
+--- Linear Optimization Allocation, penalty = 0 ---
+Part P004; Stock Level = 14; Total Cost = €35.00, Availability = 226.2537e-6
+Part P003; Stock Level = 13; Total Cost = €65.00, Availability = 697.9900e-6
+Part P002; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P001; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+
+Total Availability (Linear) with penalty 0: 1.995966739301984
+
+--- Linear Optimization Allocation, penalty = 1000000 ---
+Part P004; Stock Level = 14; Total Cost = €35.00, Availability = 226.2537e-6
+Part P003; Stock Level = 13; Total Cost = €65.00, Availability = 697.9900e-6
+Part P002; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P001; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+
+Total Availability (Linear) with penalty 1000000: 1.995966739301984
+
+--- Linear Optimization Allocation, penalty = 100000000 ---
+Part P004; Stock Level = 6; Total Cost = €15.00, Availability = 237816.5370e-6
+Part P003; Stock Level = 5; Total Cost = €25.00, Availability = 384039.3452e-6
+Part P002; Stock Level = 0; Total Cost = €0.00, Availability = 997521.2478e-6
+Part P001; Stock Level = 1; Total Cost = €60.00, Availability = 982648.7348e-6
+
+Total Availability (Linear) with penalty 100000000: 2.6020258647806678
+
+=== Comparison to optimal bound ===
+Greedy Allocation to penalty 0: 0.00023634%
+Greedy Fixed Allocation to penalty 0: 0.36717676%
+Greedy Cost Effective Allocation to penalty 0: 0.36717676%
+Greedy Allocation to penalty 1000000: 0.00023634%
+Greedy Fixed Allocation to penalty 1000000: 0.36717676%
+Greedy Cost Effective Allocation to penalty 1000000: 0.36717676%
+Greedy Allocation to penalty 100000000: -0.23273688%
+Greedy Fixed Allocation to penalty 100000000: 0.04873644%
+Greedy Cost Effective Allocation to penalty 100000000: 0.04873644%

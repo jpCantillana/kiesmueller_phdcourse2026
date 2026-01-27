@@ -51,3 +51,11 @@ class ItemApproach:
         cost = part.unit_cost * S
         
         return cost
+    
+    @staticmethod
+    def calculate_availability(part: SparePart, S: int) -> float:
+        """Calculate availability for given stock level."""
+        
+        lambd_leadtime = part.mean_demand * part.repair_time
+        
+        return 1 - PoissonDistribution.cdf(S, lambd_leadtime)

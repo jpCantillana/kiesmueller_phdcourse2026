@@ -1,0 +1,5 @@
+part_id,unit_cost,mean_demand,repair_time,holding_cost,shortage_cost
+P001,60,6,1,0,0
+P002,60,6,1,0,0
+P003,5,5,1,0,0
+P004,2.5,5,1,0,0
