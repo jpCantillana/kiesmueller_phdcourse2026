@@ -19,7 +19,7 @@ class ItemApproach:
         """Find safe stock level """
         lambd_leadtime = part.mean_demand * part.repair_time
         
-        return PoissonDistribution.cdf(S, lambd_leadtime)
+        return PoissonDistribution.cdf(S-1, lambd_leadtime)
             
     
     @staticmethod

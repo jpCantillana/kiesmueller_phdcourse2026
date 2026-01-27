@@ -36,6 +36,7 @@ class GreedyOptimizer:
             best_part = None
             
             improvement_dict = GreedyOptimizer.calculate_improvement(parts, stock_levels)
+            print("\n Improvement dict:", improvement_dict)
             for part in parts:
                 if best_increase is None or improvement_dict[part.part_id] > best_increase:
                     best_increase = improvement_dict[part.part_id]

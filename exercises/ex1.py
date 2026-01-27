@@ -9,6 +9,7 @@ sys.path.insert(0, str(project_root))
 from src.utils.data_loader import load_spare_parts
 from src.models.item_approach import ItemApproach
 from src.optimizers.greedy import GreedyOptimizer
+from src.optimizers.linear import LinearOptimizer
 
 def main(data_file: str):
     """Run exercise 1 with given data file."""
@@ -28,8 +29,13 @@ def main(data_file: str):
     print("\n=== System approach Allocation ===")
 
     fulfillment_target = 0.95
-    allocation = GreedyOptimizer.find(parts, fulfillment_target)
-    for part, stock_level in allocation:
+    allocation_greedy = GreedyOptimizer.find(parts, fulfillment_target)
+    print("\n--- Greedy Optimization Allocation ---")
+    for part, stock_level in allocation_greedy:
+        print(f"Part {part.part_id}; Stock Level = {stock_level}; Total Cost = €{ItemApproach.calculate_total_cost(part, stock_level):.2f}")
+    allocation_linear = LinearOptimizer.find(parts, fulfillment_target)
+    print("\n--- Linear Optimization Allocation ---")
+    for part, stock_level in allocation_linear:
         print(f"Part {part.part_id}; Stock Level = {stock_level}; Total Cost = €{ItemApproach.calculate_total_cost(part, stock_level):.2f}")
 
 if __name__ == "__main__":

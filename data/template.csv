@@ -1,0 +1,4 @@
+part_id,unit_cost,mean_demand,repair_time,holding_cost,shortage_cost
+P001,150,2.5,7,30,500
+P002,80,1.8,5,16,300
+P003,200,0.9,10,40,800
