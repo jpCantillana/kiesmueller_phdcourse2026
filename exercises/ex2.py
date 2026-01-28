@@ -1,5 +1,4 @@
 import sys
-import sys
 from pathlib import Path
 
 # Get the project root
@@ -12,10 +11,11 @@ from src.optimizers.greedy import GreedyOptimizer
 from src.optimizers.linear import LinearOptimizer
 
 def calculate_total_availability(parts, allocation):
-    individual_availabilities = []
+    individual_availabilities = 1
     for part in parts:
-        individual_availabilities.append(ItemApproach.calculate_availability(part, allocation[part.part_id]))
-    return sum(individual_availabilities)
+        # print(1 - ItemApproach.calculate_availability(part, allocation[part.part_id]))
+        individual_availabilities *= (1 - ItemApproach.calculate_availability(part, allocation[part.part_id]))
+    return individual_availabilities
 
 def main(data_file: str, budget: float = 200000):
     print(f"Loading data from {data_file}")
@@ -60,20 +60,20 @@ def main(data_file: str, budget: float = 200000):
     print("\n--- Linear Optimization Allocation, penalty = 100000000 ---")
     allocation_linear = LinearOptimizer.find_availability(parts, budget=budget, penalty=100000000)
     for part, stock_level in allocation_linear:
-        print(f"Part {part.part_id}; Stock Level = {stock_level}; Total Cost = €{ItemApproach.calculate_total_cost(part, stock_level):.2f}, Availability = {ItemApproach.calculate_availability(part, stock_level)*1000000:.4f}e-6")
+        print(f"Part {part.part_id}; Stock Level = {stock_level}; Total Cost = €{ItemApproach.calculate_total_cost(part, stock_level):.2f}, Availability = {1 -ItemApproach.calculate_availability(part, stock_level):.8f}")
     linear_allocation_3 = calculate_total_availability(parts, {part.part_id: stock_level for part, stock_level in allocation_linear})
     print("\nTotal Availability (Linear) with penalty 100000000:", linear_allocation_3)
     
     print("\n=== Comparison to optimal bound ===")
-    print(f"Greedy Allocation to penalty 0: {((greedy_allocation - linear_allocation)/linear_allocation)*100:.8f}%")
-    print(f"Greedy Fixed Allocation to penalty 0: {((greedy_allocation_fixed - linear_allocation)/linear_allocation)*100:.8f}%")
-    print(f"Greedy Cost Effective Allocation to penalty 0: {((greedy_allocation_cost_effective - linear_allocation)/linear_allocation)*100:.8f}%")
+    print(f"Greedy Allocation to penalty 0: {(-(greedy_allocation - linear_allocation)/linear_allocation)*100:.8f}%")
+    print(f"Greedy Fixed Allocation to penalty 0: {(-(greedy_allocation_fixed - linear_allocation)/linear_allocation)*100:.8f}%")
+    print(f"Greedy Cost Effective Allocation to penalty 0: {(-(greedy_allocation_cost_effective - linear_allocation)/linear_allocation)*100:.8f}%")
     # print(f"Greedy Allocation to penalty 1000000: {greedy_allocation/linear_allocation_2 - 1:.8f}%")
     # print(f"Greedy Fixed Allocation to penalty 1000000: {greedy_allocation_fixed/linear_allocation_2 - 1:.8f}%")
     # print(f"Greedy Cost Effective Allocation to penalty 1000000: {greedy_allocation_cost_effective/linear_allocation_2 - 1:.8f}%")
-    print(f"Greedy Allocation to penalty 100000000: {((greedy_allocation - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
-    print(f"Greedy Fixed Allocation to penalty 100000000: {((greedy_allocation_fixed - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
-    print(f"Greedy Cost Effective Allocation to penalty 100000000: {((greedy_allocation_cost_effective - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
+    print(f"Greedy Allocation to penalty 100000000: {(-(greedy_allocation - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
+    print(f"Greedy Fixed Allocation to penalty 100000000: {(-(greedy_allocation_fixed - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
+    print(f"Greedy Cost Effective Allocation to penalty 100000000: {(-(greedy_allocation_cost_effective - linear_allocation_3)/linear_allocation_3)*100:.8f}%")
 
 if __name__ == "__main__":
     if len(sys.argv) not in [2,3]:
