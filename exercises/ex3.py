@@ -7,6 +7,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 import src.models.distributions as dist
+from src.optimizers.greedy import GreedyOptimizerDivergentSystems as greedy
 
 def main():
     S_0, S_1, S_2, S_3, = 4,1,1,2
@@ -66,5 +67,24 @@ def main():
     expected_backorders_local_3 = dist.BackOrdersCentralDepotLocalDepotInducedDistribution.expected_backorders_at_local_depot(S_0, S_3, lambd_3, sum_lamb , L_3, L_0)
     print(f"Expected number of backorders at local depot 3 when S = {S_0}: {expected_backorders_local_3}")
     
+    # Exercise 3. Optimization.
+    # Define the depots and their parameters
+    depots = [0, 1, 2, 3]
+    lambdas = [22, 5, 7, 10]
+    lead_times = [0.5, 0.1, 0.1, 0.1]
+    target_backorders_levels = [0.05, 0.05, 0.05, 0.05]
+
+    # Find optimal stock levels for each depot
+    optimal_stock_levels = greedy.find(depots, target_backorders_levels, lambdas, lead_times)
+    print("Optimal stock levels:", optimal_stock_levels)
+    
+    # # Example
+    # depots_example = [0, 1, 2, 3]
+    # lead_times_example = [0.5, 0.1, 0.1, 0.1]
+    # lambdas_example = [10, 2, 3, 5]
+    # target_backorders_levels_example = [0.1, 0.1, 0.1, 0.1]
+    # optimal_stock_levels_example = greedy.find(depots_example, target_backorders_levels_example, lambdas_example, lead_times_example)
+    # print("Optimal stock levels (example):", optimal_stock_levels_example)
+
 if __name__ == "__main__":
     main()

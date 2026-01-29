@@ -57,7 +57,7 @@ class GreedyOptimizer:
             best_part = None
             
             improvement_dict = GreedyOptimizer.calculate_improvement(parts, stock_levels)
-            print("\n Improvement dict:", improvement_dict)
+            # print("\n Improvement dict:", improvement_dict)
             for part in parts:
                 if best_increase is None or improvement_dict[part.part_id] > best_increase:
                     best_increase = improvement_dict[part.part_id]
@@ -78,7 +78,7 @@ class GreedyOptimizer:
             best_part = None
             
             improvement_dict = GreedyOptimizer.calculate_individual_availability(parts, stock_levels)
-            print("\n Improvement dict:", improvement_dict)
+            # print("\n Improvement dict:", improvement_dict)
             for part in parts:
                 if best_increase is None or improvement_dict[part.part_id] > best_increase:
                     best_increase = improvement_dict[part.part_id]
@@ -155,7 +155,7 @@ class GreedyOptimizer:
             best_part = None
             
             improvement_dict = GreedyOptimizer.calculate_individual_availability(parts, stock_levels)
-            print("\n Improvement dict:", improvement_dict)
+            # print("\n Improvement dict:", improvement_dict)
             for part in parts:
                 if best_increase is None or improvement_dict[part.part_id] > best_increase:
                     best_increase = improvement_dict[part.part_id]
@@ -181,7 +181,7 @@ class GreedyOptimizer:
             
             improvement_dict = GreedyOptimizer.calculate_individual_availability(parts, stock_levels)
             investment = GreedyOptimizer.calculate_investment(parts, stock_levels)
-            print("\n Improvement dict:", improvement_dict)
+            # print("\n Improvement dict:", improvement_dict)
             for part in parts:
                 if best_increase is None or improvement_dict[part.part_id] > best_increase:
                     if investment + part.unit_cost > budget:
@@ -192,4 +192,80 @@ class GreedyOptimizer:
                 return [(part, stock_levels[part.part_id]) for part in parts]
             else:
                 stock_levels[best_part.part_id] += 1
+    
+class GreedyOptimizerDivergentSystems:
+    
+    @staticmethod
+    def calculate_improvement(depots: List, stock_levels: Dict, EBO_targets: List, demands: List, lead_times: List) -> float:
+        """Calculate total improvement in EBO for current stock levels."""
+        improvement_dict = {k: 0 for k in list(stock_levels.keys())}
+        base_value_sum = sum(
+            [
+                max(GreedyOptimizerDivergentSystems.calculate_EBO(stock_levels[0], stock_levels[depot_idx], demands[0], demands[depot_idx], lead_times[0], lead_times[depot_idx]) - EBO_targets[depot_idx], 0)
+                for depot_idx in range(1,len(depots))
+            ]
+        )
+        print("Base value sum:", base_value_sum)
+        for depot_idx in range(len(depots)):
+            if depot_idx == 0:
+                temporary_stock_levels = copy.deepcopy(stock_levels)
+                temporary_stock_levels[depot_idx] += 1
+                new_value = sum(
+                    [
+                        max(GreedyOptimizerDivergentSystems.calculate_EBO(temporary_stock_levels[0], temporary_stock_levels[d_idx], demands[0], demands[d_idx], lead_times[0], lead_times[d_idx]) - EBO_targets[d_idx], 0)
+                        for d_idx in range(1,len(depots))
+                    ]
+                )
+                print("New value (central depot):", new_value)
+                improvement_dict[depot_idx] = (base_value_sum - new_value)
+            else:
+                base_level_local = max(GreedyOptimizerDivergentSystems.calculate_EBO(stock_levels[0], stock_levels[depot_idx], demands[0], demands[depot_idx], lead_times[0], lead_times[depot_idx]) - EBO_targets[depot_idx], 0)
+                temporary_stock_levels = copy.deepcopy(stock_levels)
+                temporary_stock_levels[depot_idx] += 1
+                new_level_local = max(GreedyOptimizerDivergentSystems.calculate_EBO(temporary_stock_levels[0], temporary_stock_levels[depot_idx], demands[0], demands[depot_idx], lead_times[0], lead_times[depot_idx]) - EBO_targets[depot_idx], 0)
+                improvement_dict[depot_idx] = base_level_local - new_level_local
+            
+        return improvement_dict
+    
+    @staticmethod
+    def calculate_EBO(central_depot_stock: int, local_depot_stock: int, central_demand, local_demand, lead_time_center, lead_time_local) -> float:
+        """Calculate EBO """
+        import src.models.distributions as dist
+        return dist.BackOrdersCentralDepotLocalDepotInducedDistribution.expected_backorders_at_local_depot(central_depot_stock, local_depot_stock, local_demand, central_demand , lead_time_local, lead_time_center)
+    
+    @staticmethod
+    def find(depots: List, backorders_levels: List[float], demands: List, lead_times: List) -> List[Tuple]:
+        """Find optimal EBO for divergent systems within EBO budget."""
+        # Initial stock levels and costs
+        stock_levels = {depot_idx: 0 for depot_idx in range(len(depots))}
         
+        # EBO_dict = GreedyOptimizerDivergentSystems.calculate_EBO(depots, stock_levels, demands, lead_times)
+        # print("EBO dict:", EBO_dict)
+        
+        iteration = 0
+        while True:
+            iteration += 1
+            best_increase = None
+            best_depot = None
+            
+            improvement_dict = GreedyOptimizerDivergentSystems.calculate_improvement(depots, stock_levels, backorders_levels, demands, lead_times)
+            print("\n Improvement dict:", improvement_dict)
+            
+            # break
+            for depot_idx in range(len(depots)):
+                if best_increase is None or improvement_dict[depot_idx] > best_increase:
+                    best_increase = improvement_dict[depot_idx]
+                    best_depot = depot_idx
+            stock_levels[best_depot] += 1
+            
+            print("\n Iteration:", iteration, " Stock levels:", stock_levels, "at depot:", best_depot)
+            
+            current_EBO = []
+            
+            for depot_idx in range(1,len(depots)):
+                EBO = GreedyOptimizerDivergentSystems.calculate_EBO(stock_levels[0], stock_levels[depot_idx], demands[0], demands[depot_idx], lead_times[0], lead_times[depot_idx])
+                print("  EBO at depot", depot_idx, ":", EBO, " target:", backorders_levels[depot_idx])
+                current_EBO.append(EBO <= backorders_levels[depot_idx])
+            
+            if current_EBO.count(False) == 0:
+                return [(depot_idx, stock_levels[depot_idx]) for depot_idx in range(len(depots))]

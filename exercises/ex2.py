@@ -14,7 +14,10 @@ def calculate_total_availability(parts, allocation):
     individual_availabilities = 1
     for part in parts:
         # print(1 - ItemApproach.calculate_availability(part, allocation[part.part_id]))
-        individual_availabilities *= (1 - ItemApproach.calculate_availability(part, allocation[part.part_id]))
+        individual_av = ItemApproach.calculate_availability(part, allocation[part.part_id])
+        if individual_av < 10e-16:
+            continue
+        individual_availabilities *= (1 - individual_av)
     return individual_availabilities
 
 def main(data_file: str, budget: float = 200000):
@@ -58,7 +61,7 @@ def main(data_file: str, budget: float = 200000):
     # print("\nTotal Availability (Linear) with penalty 1000000:", linear_allocation_2)
 
     print("\n--- Linear Optimization Allocation, penalty = 100000000 ---")
-    allocation_linear = LinearOptimizer.find_availability(parts, budget=budget, penalty=100000000)
+    allocation_linear = LinearOptimizer.find_availability(parts, budget=budget, penalty=1000000000000)
     for part, stock_level in allocation_linear:
         print(f"Part {part.part_id}; Stock Level = {stock_level}; Total Cost = €{ItemApproach.calculate_total_cost(part, stock_level):.2f}, Availability = {1 -ItemApproach.calculate_availability(part, stock_level):.8f}")
     linear_allocation_3 = calculate_total_availability(parts, {part.part_id: stock_level for part, stock_level in allocation_linear})

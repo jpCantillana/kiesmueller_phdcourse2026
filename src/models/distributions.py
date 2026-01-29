@@ -113,6 +113,6 @@ class BackOrdersCentralDepotLocalDepotInducedDistribution:
         outstanding_part = 0.0
         for j in range(S_i + 1):
             outstanding_part += (S_i - j) * BackOrdersCentralDepotLocalDepotInducedDistribution.probability_outstanding_orders_at_local_depot(j, S_0, rate, L_0, lambd_i , L_i)
-        print("demand_part:", demand_part, "back_order_part:", back_order_part, "outstanding_part:", outstanding_part)
+        # print("demand_part:", demand_part, "back_order_part:", back_order_part, "outstanding_part:", outstanding_part)
         return demand_part + back_order_part - S_i + outstanding_part
         
